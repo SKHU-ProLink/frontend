@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+## 기술스택
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+* React Native (Expo)
+* TypeScript
+* JavaScript (ES6+)
 
-## Get started
+---
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 프로젝트 구조
 
 ```bash
-npm run reset-project
+src/
+ ├── app/            # 라우팅 및 화면 구성
+ ├── components/     # 재사용 UI 컴포넌트
+ ├── features/       # 기능 단위 로직
+ ├── lib/            # 공통 설정
+ ├── constants/      # 상수 관리
+ └── assets/         # 이미지 등 리소스
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 협업 방식
 
-To learn more about developing your project with Expo, look at the following resources:
+1. 이슈를 생성한다.
+2. 이슈를 기반으로 브랜치를 생성한다.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+   * ex: `feat/#3`
+3. 브랜치를 생성한 후에 작업을 진행한다.
+4. 진행한 후에 커밋을 한다.
+5. 작업이 완료되면 PR을 생성한다.
+6. PR을 생성한 후에 팀원들에게 리뷰를 요청한다.
+7. 리뷰 승인 후 develop branch에 merge한다.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## Branch 전략
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+* `main` : 배포 브랜치
+* `develop` : 개발 브랜치
+* `feat/*` : 기능 개발 브랜치
+
+---
+
+## Commit Convention
+
+```bash
+feat: 새로운 기능 구현
+add: 파일 추가
+del: 코드 삭제
+fix: 버그 수정
+docs: 문서 작업
+style: 스타일 변경
+refactor: 리팩토링
+test: 테스트 코드
+chore: 기타 수정
+```
+
+---
+
+## Code Convention
+
+### 구조 원칙
+
+* components: 재사용 UI
+* screens: 화면 단위
+* assets: 리소스
+
+---
+
+### 금지 사항
+
+* 하나의 파일에 UI + 로직 혼합 금지
+* 코드 중복 최소화
+
