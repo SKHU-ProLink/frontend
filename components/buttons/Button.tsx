@@ -3,11 +3,11 @@ import { colors } from "../../constants/colors";
 interface ButtonProps {
     title: string;
     onPress: () => void;
-    variant?: 'primary' | 'secondary';
+    variant?: 'primary' | 'secondary' | 'disabled';
 }   
 const Button = ({ title, onPress, variant = 'primary' }: ButtonProps) => {
     return (
-        <Pressable onPress={onPress} style={[styles.button, variant === 'secondary' && styles.secondaryButton]}>
+        <Pressable onPress={onPress} style={[styles.button, variant === 'secondary' && styles.secondaryButton, variant === 'disabled' && styles.disabledButton]}>
             <Text style={styles.buttonText}>{title}</Text>
         </Pressable>
     );
@@ -28,8 +28,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     secondaryButton :{
-        color: colors.primary[500],
         backgroundColor: colors.grayscale[50],
+    },
+    disabledButton: {
+        opacity: 0.5,
     }
 }); 
 
