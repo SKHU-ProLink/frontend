@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary[500],
         paddingHorizontal: 17,
         borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     buttonText: {
         color: colors.grayscale[50],

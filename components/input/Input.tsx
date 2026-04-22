@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'transparent',
         flex: 1,
+        textAlign: 'center',
     },
     inputFocused: {
         borderColor: colors.primary[500],
