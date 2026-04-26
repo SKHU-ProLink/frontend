@@ -4,17 +4,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  ViewStyle
+  View
 } from 'react-native';
 import CheckIcon from '../assets/images/check.svg';
 type Props = {
   title?: string;
   subtitle?: string;
   xp?: number;
-  completed?: boolean;
+  completed?: 'done' | 'progress' | 'disabled';
   onPress?: ComponentProps<typeof TouchableOpacity>['onPress'];
-  style?: ViewStyle;
   icon?: React.ReactNode;
 };
 
@@ -24,9 +22,8 @@ export function TodoList({
   subtitle = '모두 완료',
   xp = 20,
   icon,
-  completed = true,
+  completed = 'progress',
   onPress,
-  style,
 }: Props) {
   return (
    <View style={styles.container}>
