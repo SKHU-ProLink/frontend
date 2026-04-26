@@ -1,11 +1,11 @@
 import { StyleSheet, View } from 'react-native';
 
-import { TodoList } from '@/components/todo-list';
+import { TodoList } from '@/components/TodoList/todo-list';
 import FlashCardIcon from '../../assets/images/flash-card.svg';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <TodoList icon = {<FlashCardIcon />}/>
+      <TodoList icon = {<FlashCardIcon width={40} height={40}/>} completed='done'/>
     </View>
   );
 }
