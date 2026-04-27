@@ -2,6 +2,7 @@ import { colors } from '@/constants/colors';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CheckIcon from '../../assets/images/check.svg';
 import PlayIcon from '../../assets/images/play.svg';
+import ProgressBar from './progressBar';
 import { IconBox } from './todo-list-icon-box';
 import { type TodoListProps } from './types';
 
@@ -21,9 +22,7 @@ export function ProgressCard({ title = '플래시 카드', subtitle = '모두 �
               <Text style={styles.title}>{title}</Text>
               <Text style={styles.subtitle}>{subtitle}</Text>
             </View>
-            <View style={styles.progressBarBackground}>
-              <View style={[styles.progressBarFill, { width: `${progressValue}%` as `${number}%` }]} />
-            </View>
+            <ProgressBar progressValue={progressValue}/>
           </View>
         </View>
         <PlayIcon width={48} height={48} />
@@ -102,18 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '400',
   },
-  progressBarBackground: {
-    height: 8,
-    width: '70%',
-    borderRadius: 4,
-    backgroundColor: colors.grayscale[200],
-    overflow: 'hidden',
-  },
-  progressBarFill: {
-    height: '100%',
-    borderRadius: 4,
-    backgroundColor: colors.primary[500],
-  },
+  
   xpText: {
     color: colors.grayscale[600],
     fontSize: 14,

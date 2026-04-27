@@ -5,7 +5,7 @@ import FlashCardIcon from '../../assets/images/flash-card.svg';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <TodoList icon = {<FlashCardIcon width={40} height={40}/>} completed='done'/>
+      <TodoList icon = {<FlashCardIcon width={40} height={40}/>} completed='progress'/>
     </View>
   );
 }
