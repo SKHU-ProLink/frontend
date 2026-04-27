@@ -35,12 +35,11 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: colors.grayscale[50],
         fontSize: 16,
-        paddingHorizontal: 17,
-        paddingVertical: 10,
-        borderRadius: 20,
-        borderWidth: 1,
+        paddingVertical: 17,
+        borderRadius: 50,
+        borderWidth: 1.5,
         borderColor: 'transparent',
-        flex: 1,
+        width: '100%',
         textAlign: 'center',
     },
     inputFocused: {
