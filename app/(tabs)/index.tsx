@@ -1,11 +1,7 @@
 import { StyleSheet, View } from 'react-native';
-
-import { TodoList } from '@/components/TodoList/todo-list';
-import FlashCardIcon from '../../assets/images/flash-card.svg';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <TodoList icon = {<FlashCardIcon width={40} height={40}/>} completed='progress'/>
     </View>
   );
 }
@@ -15,6 +11,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 24,
+    gap: 10
   },
   titleContainer: {
     flexDirection: 'row',

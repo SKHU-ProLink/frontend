@@ -16,10 +16,10 @@ const Button = ({ title, onPress, variant = 'primary' }: ButtonProps) => {
 
 const styles = StyleSheet.create({
     button: {
-        flex: 1,
+        width: '100%',
         backgroundColor: colors.primary[500],
-        paddingHorizontal: 17,
-        borderRadius: 20,
+        paddingVertical: 17,
+        borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -30,10 +30,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     secondaryButton :{
-        backgroundColor: colors.grayscale[50],
+        backgroundColor: colors.grayscale[400],
     },
     disabledButton: {
-        opacity: 0.5,
+        backgroundColor: colors.grayscale[400],
+        opacity: 0.5
     }
 }); 
 
