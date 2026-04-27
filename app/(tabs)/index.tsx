@@ -3,7 +3,11 @@ import { StyleSheet, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <FlashCard />
+      <FlashCard front={'ㅇㅇ'} back={{
+        meaning: "사과",
+        partOfSpeech: "명사",
+        pronunciation: "/æp.əl/"
+    }} />
     </View>
   );
 }
