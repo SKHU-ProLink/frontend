@@ -17,7 +17,6 @@ const ProgressBar = ({progressValue, style} : ProgressBarProps) => {
 const styles = StyleSheet.create({
     progressBarBackground: {
         height: 8,
-        width: '70%',
         borderRadius: 4,
         backgroundColor: colors.grayscale[200],
         overflow: 'hidden',
