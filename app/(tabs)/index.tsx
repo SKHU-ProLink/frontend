@@ -1,7 +1,9 @@
+import FlashCard from '@/components/flash-card';
 import { StyleSheet, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
+      <FlashCard />
     </View>
   );
 }
