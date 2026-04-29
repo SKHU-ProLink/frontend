@@ -1,9 +1,9 @@
-import QuizCard from '@/components/quiz-card';
+import Quiz from '@/components/quiz/quiz';
 import { StyleSheet, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <QuizCard title='What does "Apple" mean?'/>
+      <Quiz title='사과' level='A'/>
     </View>
   );
 }
