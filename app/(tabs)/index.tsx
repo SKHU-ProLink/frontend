@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Quiz title='사과' level='A'/>
+      <Quiz title='사과' level='A' />
     </View>
   );
 }
