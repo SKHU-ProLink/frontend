@@ -1,9 +1,11 @@
-import Quiz from '@/components/quiz/quiz';
+import SentenceCard from '@/components/quiz/sentence-card';
 import { StyleSheet, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Quiz title='사과' level='A' />
+      <SentenceCard title={'안머겅'} onPress={function (): void {
+        throw new Error('Function not implemented.');
+      } } />
     </View>
   );
 }
