@@ -4,11 +4,17 @@ import { colors } from "../../constants/colors";
 interface ButtonProps {
     title: string;
     onPress: () => void;
-    variant?: 'primary' | 'secondary' | 'disabled' | 'speaking';
+    variant?: 'primary' | 'secondary' | 'disabled' | 'speaking' | 'incorrect';
 }   
 const Button = ({ title, onPress, variant = 'primary' }: ButtonProps) => {
     return (
-        <Pressable onPress={onPress} style={[styles.button, variant === 'secondary' && styles.secondaryButton, variant === 'disabled' && styles.disabledButton, variant === "speaking" && styles.speakingButton] }>
+        <Pressable onPress={onPress} style={[
+            styles.button, 
+            variant === 'secondary' && styles.secondaryButton, 
+            variant === 'disabled' && styles.disabledButton, 
+            variant === "speaking" && styles.speakingButton, 
+            variant === "incorrect" && styles.incorrectButton] 
+        }>
             {variant !== "speaking" ?
                 (<Text style={styles.buttonText}>{title}</Text>) :
                 (
@@ -51,6 +57,9 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary[50],
         flexDirection: 'row',
         gap: 6
+    },
+    incorrectButton: {
+        backgroundColor: '#FF3131'
     }
 }); 
 
