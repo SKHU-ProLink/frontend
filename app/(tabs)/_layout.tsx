@@ -1,35 +1,51 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 
-import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { colors } from '@/constants/colors';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: colors.primary[500],
         headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarShowLabel: false,
+        tabBarStyle: styles.tabBarStyle,
+        tabBarIconStyle: styles.tabBarIconStyle,
       }}>
       <Tabs.Screen
-        name="index"
+        name="study"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={40} name="book.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="home"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={40} name="house.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="mypage"
+        options={{
+          tabBarIcon: ({ color }) => <IconSymbol size={40} name="person.fill" color={color} />,
         }}
       />
     </Tabs>
   );
 }
+
+
+const styles = StyleSheet.create({
+  tabBarStyle: { 
+    height: 80,
+  },
+  tabBarIconStyle: { 
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
