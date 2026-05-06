@@ -6,21 +6,21 @@ type BottomResultProps = {
     title: string;
     subTitle: string;
     state: 'correct' | 'incorrect';
+    buttonTitle?: string;
+    onNext: () => void;
 }
-const BottomResult = ({title, subTitle, state}: BottomResultProps) => {
+const BottomResult = ({title, subTitle, state, buttonTitle = '다음 문제', onNext}: BottomResultProps) => {
     return(
-        <View style={[styles.container, state == "incorrect" && {backgroundColor: '#FFECEC'}]}>
+        <View style={[styles.container, state === "incorrect" && {backgroundColor: '#FFECEC'}]}>
            <View style={{gap: 4, paddingLeft: 11}}>
-                <Text style={[styles.title, state == "incorrect" && {color: '#FF3131'}]}>
+                <Text style={[styles.title, state === "incorrect" && {color: '#FF3131'}]}>
                     {title}
                 </Text>
-                <Text style={[styles.subTitle, state == "incorrect" && {color: '#FF3131'}]}>
+                <Text style={[styles.subTitle, state === "incorrect" && {color: '#FF3131'}]}>
                     {subTitle}
                 </Text>
            </View>
-            <Button title={'다음 문제'} onPress={function (): void {
-                throw new Error('Function not implemented.');
-            } } 
+            <Button title={buttonTitle} onPress={onNext} 
             variant={state === "incorrect" ? "incorrect" : "primary"}
             />
         </View>

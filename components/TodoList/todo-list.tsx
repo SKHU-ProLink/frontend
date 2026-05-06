@@ -1,5 +1,5 @@
 import { colors } from '@/constants/colors';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CheckIcon from '../../assets/images/check.svg';
 import LockIcon from '../../assets/images/lock.svg';
 import { IconBox } from './todo-list-icon-box';
@@ -11,11 +11,16 @@ export function TodoList(props: TodoListProps) {
   return <DoneCard {...props} />;
 }
 
-function DoneCard({ title = '플래시 카드', subtitle = '모두 완료', xp = 20, icon, completed = 'done' }: TodoListProps) {
+function DoneCard({ title = '플래시 카드', subtitle = '모두 완료', xp = 20, icon, completed = 'done', onPress }: TodoListProps) {
   const isDone = completed === 'done';
 
   return (
-    <View style={[styles.container, !isDone && styles.disabledContainer]}>
+    <TouchableOpacity
+      style={[styles.container, !isDone && styles.disabledContainer]}
+      onPress={onPress}
+      activeOpacity={0.8}
+      disabled={!isDone}
+    >
       <View style={styles.left}>
         <IconBox icon={icon} color={isDone ? colors.primary[100] : colors.grayscale[200]} />
         <View style={styles.textContainer}>
@@ -26,7 +31,7 @@ function DoneCard({ title = '플래시 카드', subtitle = '모두 완료', xp =
       <View>
         {!isDone ? <LockIcon width={50} height={50} /> : <CheckIcon width={40} height={40} />}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
