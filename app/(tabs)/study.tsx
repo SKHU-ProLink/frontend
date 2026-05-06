@@ -2,6 +2,7 @@ import LevelCard from '@/components/level-card';
 import { TodoList } from '@/components/TodoList/todo-list';
 import { colors } from '@/constants/colors';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Arrow from '../../assets/images/arrow.svg';
 import FlashCardIcon from '../../assets/images/flash-card.svg';
@@ -9,6 +10,8 @@ import SeedCharacter from '../../assets/images/seed.svg';
 import { ProgressCard } from '../../components/TodoList/todo-list-progress';
 
 export default function StudyScreen() {
+  const router = useRouter();
+
   return (
     <ScrollView style={styles.container}>
       <LinearGradient
@@ -33,7 +36,7 @@ export default function StudyScreen() {
       <View style={styles.todoSection}>
         <Text style={styles.sectionTitle}>오늘의 학습 투두</Text>
         <View style={styles.todoList}>
-          <TodoList icon={<FlashCardIcon />} />
+          <TodoList icon={<FlashCardIcon />} onPress={() => router.push('/flash-card')} />
           <Arrow width={16} height={16} color={colors.primary[500]} />
           <ProgressCard icon={<FlashCardIcon />} />
           <Arrow width={16} height={16} color={colors.grayscale[300]} />
