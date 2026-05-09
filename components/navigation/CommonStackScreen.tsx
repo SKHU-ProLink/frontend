@@ -17,6 +17,7 @@ export default function CommonStackScreen({
   return (
     <Stack.Screen
       options={{
+        headerShown: true,
         headerShadowVisible: false,
         headerStyle: {
           backgroundColor,

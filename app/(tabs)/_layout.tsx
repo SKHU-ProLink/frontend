@@ -23,6 +23,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="quiz"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
         name="home"
         options={{
           tabBarIcon: ({ color }) => <IconSymbol size={40} name="house.fill" color={color} />,

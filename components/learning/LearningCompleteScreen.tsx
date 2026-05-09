@@ -9,6 +9,7 @@ type LearningCompleteScreenProps = {
   headerTitle?: string;
   title: string;
   wordsLearned: number;
+  learnedLabel?: string;
   xpEarned: number;
   buttonTitle?: string;
   onButtonPress: () => void;
@@ -18,6 +19,7 @@ export default function LearningCompleteScreen({
   headerTitle = '학습 완료',
   title,
   wordsLearned,
+  learnedLabel = '오늘배운\n단어',
   xpEarned,
   buttonTitle = '계속하기',
   onButtonPress,
@@ -43,7 +45,7 @@ export default function LearningCompleteScreen({
           <View style={styles.statsRow}>
             <View style={styles.statItem}>
               <Text style={styles.statNumber}>{wordsLearned}</Text>
-              <Text style={styles.statLabel}>{'오늘배운\n단어'}</Text>
+              <Text style={styles.statLabel}>{learnedLabel}</Text>
             </View>
             <View style={styles.statItem}>
               <Text style={styles.statNumber}>{xpEarned}</Text>
