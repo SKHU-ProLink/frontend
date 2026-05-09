@@ -38,13 +38,9 @@ export default function StudyScreen() {
         <View style={styles.todoList}>
           <TodoList icon={<FlashCardIcon />} onPress={() => router.push('/flash-card')} />
           <Arrow width={16} height={16} color={colors.primary[500]} />
-          <ProgressCard
-            title="예문 학습하기"
-            icon={<FlashCardIcon />}
-            onPress={() => router.push('/example-sentence')}
-          />
+          <ProgressCard icon={<FlashCardIcon />} />
           <Arrow width={16} height={16} color={colors.grayscale[300]} />
-          <TodoList title="퀴즈" icon={<FlashCardIcon />} completed="disabled" />
+          <TodoList icon={<FlashCardIcon />} completed="disabled" />
         </View>
       </View>
     </ScrollView>
