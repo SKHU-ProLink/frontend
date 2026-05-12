@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   progressBar: {
-    height: 18,
+    height: 17,
     borderRadius: 999,
   },
   actionList: {
@@ -96,6 +96,10 @@ const styles = StyleSheet.create({
   },
   actionCard: {
     backgroundColor: "#FAFAFA",
+    paddingVertical: 18,
+    paddingHorizontal: 8,
+    borderRadius: 20,
+    gap: 12,
   },
 });
 
