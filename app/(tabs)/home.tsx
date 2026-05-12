@@ -1,7 +1,7 @@
 import HeartIcon from '@/assets/images/heart.svg';
 import PlantIcon from '@/assets/images/plant.svg';
 import StoreIcon from '@/assets/images/store.svg';
-import ImageActionCard from '@/components/image-action-card';
+import HomeStatusSection from '@/components/home/home-status-section';
 import IconTextPill from '@/components/icon-text-pill';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 
@@ -11,20 +11,26 @@ export default function HomeScreen() {
       <View style={styles.header}>
         <IconTextPill Icon={StoreIcon} text="상점" />
       </View>
-      <View style={styles.cardList}>
-        <ImageActionCard
-          Icon={HeartIcon}
-          title="쓰다듬어 주세요"
-          subtitle="12번 보유"
-          onPress={() => Alert.alert('쓰다듬어 주세요')}
-        />
-        <ImageActionCard
-          Icon={PlantIcon}
-          title="잡초뽑기"
-          subtitle="12번 보유"
-          onPress={() => Alert.alert('잡초뽑기')}
-        />
-      </View>
+      <HomeStatusSection
+        name="씨앗"
+        level={1}
+        currentXP={45}
+        maxXP={100}
+        actions={[
+          {
+            Icon: HeartIcon,
+            title: '쓰다듬어 주세요',
+            subtitle: '12개 보유',
+            onPress: () => Alert.alert('쓰다듬어 주세요'),
+          },
+          {
+            Icon: PlantIcon,
+            title: '잡초뽑기',
+            subtitle: '12개 보유',
+            onPress: () => Alert.alert('잡초뽑기'),
+          },
+        ]}
+      />
     </ScrollView>
   );
 }
@@ -40,9 +46,5 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'flex-start',
-  },
-  cardList: {
-    flexDirection: 'row',
-    gap: 11,
   },
 });
