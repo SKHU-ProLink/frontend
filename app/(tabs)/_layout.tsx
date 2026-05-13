@@ -1,9 +1,19 @@
-import { Tabs } from 'expo-router';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { router, Tabs } from 'expo-router';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { colors } from '@/constants/colors';
+
+const handleHomeBack = () => {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+
+  router.replace('/(tabs)/study');
+};
 
 export default function TabLayout() {
 
@@ -31,6 +41,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
+          headerShown: true,
+          headerTitle: '',
+          headerTransparent: true,
+          headerShadowVisible: false,
+          tabBarStyle: styles.hiddenTabBar,
+          headerLeft: () => (
+            <Pressable onPress={handleHomeBack} style={styles.backButton}>
+              <MaterialIcons name="chevron-left" size={34} color="#111827" />
+            </Pressable>
+          ),
           tabBarIcon: ({ color }) => <IconSymbol size={40} name="house.fill" color={color} />,
         }}
       />
@@ -53,5 +73,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  hiddenTabBar: {
+    display: 'none',
+  },
+  backButton: {
+    marginLeft: 16,
+    width: 44,
+    height: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -17,6 +17,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="flash-card" options={{ headerShown: false }} />
           <Stack.Screen name="example-sentence" options={{ headerShown: false }} />
+          <Stack.Screen name="store" options={{ headerShown: false }} />
         </Stack>
         <StatusBar style="auto" />
     </>
