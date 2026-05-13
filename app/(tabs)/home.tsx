@@ -5,11 +5,15 @@ import SeedIcon from '@/assets/images/seed.svg';
 import StoreIcon from '@/assets/images/store.svg';
 import HomeStatusSection from '@/components/home/home-status-section';
 import IconTextPill from '@/components/icon-text-pill';
+import InventoryBottomSheet from '@/components/inventory/inventory-bottom-sheet';
 import { router } from 'expo-router';
+import { useState } from 'react';
 import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
+  const [isInventoryVisible, setIsInventoryVisible] = useState(false);
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={[styles.cloud, styles.topCloud]} />
@@ -47,9 +51,17 @@ export default function HomeScreen() {
         />
       </View>
 
-      <View style={styles.storageButton}>
+      <Pressable
+        style={styles.storageButton}
+        onPress={() => setIsInventoryVisible(true)}
+      >
         <IconTextPill Icon={BoxIcon} text="보관함" iconSize={53} />
-      </View>
+      </Pressable>
+
+      <InventoryBottomSheet
+        visible={isInventoryVisible}
+        onClose={() => setIsInventoryVisible(false)}
+      />
     </SafeAreaView>
   );
 }
