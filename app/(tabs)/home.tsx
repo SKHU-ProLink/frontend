@@ -5,7 +5,8 @@ import SeedIcon from '@/assets/images/seed.svg';
 import StoreIcon from '@/assets/images/store.svg';
 import HomeStatusSection from '@/components/home/home-status-section';
 import IconTextPill from '@/components/icon-text-pill';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
@@ -14,9 +15,9 @@ export default function HomeScreen() {
       <View style={[styles.cloud, styles.topCloud]} />
       <View style={[styles.cloud, styles.rightCloud]} />
 
-      <View style={styles.storeButton}>
+      <Pressable style={styles.storeButton} onPress={() => router.push('/store')}>
         <IconTextPill Icon={StoreIcon} text="상점" iconSize={48} />
-      </View>
+      </Pressable>
 
       <View style={styles.characterArea}>
         <Text style={styles.characterName}>시네츄르</Text>
