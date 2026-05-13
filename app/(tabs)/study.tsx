@@ -30,7 +30,7 @@ export default function StudyScreen() {
           currentXP={0}
           maxXP={0}
           CharacterSvg={SeedCharacter}
-          onPress={() => {}}
+          onPress={() => router.push('/(tabs)/home')}
         />
       </LinearGradient>
       <View style={styles.todoSection}>
