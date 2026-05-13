@@ -7,7 +7,6 @@ import { router } from 'expo-router';
 import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// 투두 완료 단계 더미 데이터 (0: 없음, 1~3: 단계별)
 const completionData: Record<string, 0 | 1 | 2 | 3> = {
   '2026-05-01': 1,
   '2026-05-02': 3,
@@ -29,12 +28,19 @@ const pastCharacters = [
 export default function MypageScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      <View style={[styles.cloud, styles.topCloud]} />
+      <View style={[styles.cloud, styles.rightCloud]} />
+
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.pageTitle}>마이페이지</Text>
-        <Text style={styles.greeting}>선이님, 안녕하세요 !</Text>
+
+        <View style={styles.greetingCard}>
+          <Text style={styles.greetingName}>셔니님</Text>
+          <Text style={styles.greetingText}>안녕하세요 !</Text>
+        </View>
 
         <MyPageSection title="현재 레벨" noCard style={styles.section}>
           <LevelCard
@@ -55,7 +61,9 @@ export default function MypageScreen() {
           <View style={styles.characterGrid}>
             {pastCharacters.map(char => (
               <View key={char.id} style={styles.characterItem}>
-                <SeedIcon width={80} height={80} />
+                <View style={styles.characterBubble}>
+                  <SeedIcon width={72} height={72} />
+                </View>
                 <Text style={styles.characterName}>{char.name}</Text>
               </View>
             ))}
@@ -66,6 +74,7 @@ export default function MypageScreen() {
           <TouchableOpacity onPress={() => Alert.alert('로그아웃')}>
             <Text style={styles.bottomButtonText}>로그아웃</Text>
           </TouchableOpacity>
+          <View style={styles.divider} />
           <TouchableOpacity onPress={() => Alert.alert('탈퇴하기')}>
             <Text style={styles.bottomButtonText}>탈퇴하기</Text>
           </TouchableOpacity>
@@ -80,6 +89,25 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#EFFCFF',
   },
+  cloud: {
+    position: 'absolute',
+    backgroundColor: '#FFF',
+  },
+  topCloud: {
+    top: -40,
+    left: -34,
+    width: 150,
+    height: 128,
+    borderBottomRightRadius: 64,
+  },
+  rightCloud: {
+    top: 180,
+    right: -44,
+    width: 120,
+    height: 80,
+    borderTopLeftRadius: 48,
+    borderBottomLeftRadius: 48,
+  },
   scrollContent: {
     paddingHorizontal: 24,
     paddingBottom: 40,
@@ -91,13 +119,23 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard',
     marginTop: 8,
   },
-  greeting: {
+  greetingCard: {
+    marginTop: 16,
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 6,
+  },
+  greetingName: {
     fontSize: 18,
-    fontWeight: '600',
-    color: colors.grayscale[800],
+    fontWeight: '700',
+    color: colors.primary[500],
     fontFamily: 'Pretendard',
-    marginTop: 20,
-    marginBottom: 8,
+  },
+  greetingText: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: colors.grayscale[700],
+    fontFamily: 'Pretendard',
   },
   section: {
     marginTop: 24,
@@ -109,7 +147,15 @@ const styles = StyleSheet.create({
   },
   characterItem: {
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
+  },
+  characterBubble: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: colors.primary[50],
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   characterName: {
     fontSize: 14,
@@ -120,8 +166,14 @@ const styles = StyleSheet.create({
   bottomButtons: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 40,
+    alignItems: 'center',
+    gap: 20,
     marginTop: 40,
+  },
+  divider: {
+    width: 1,
+    height: 14,
+    backgroundColor: colors.grayscale[300],
   },
   bottomButtonText: {
     fontSize: 15,
