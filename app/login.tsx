@@ -11,7 +11,7 @@ export default function LoginScreen() {
     Alert.alert('네이버 로그인', '네이버 로그인 연동 예정', [
       {
         text: '확인',
-        onPress: () => router.replace('/(tabs)/study'),
+        onPress: () => router.replace({ pathname: '/onboarding' } as any),
       },
     ]);
   };
@@ -21,7 +21,7 @@ export default function LoginScreen() {
     Alert.alert('카카오 로그인', '카카오 로그인 연동 예정', [
       {
         text: '확인',
-        onPress: () => router.replace('/(tabs)/study'),
+        onPress: () => router.replace({ pathname: '/onboarding' } as any),
       },
     ]);
   };
